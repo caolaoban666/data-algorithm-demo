@@ -1,6 +1,6 @@
 package sort;
 
-import java.util.Arrays;
+import java.util.Random;
 
 /**
  * 冒泡排序算法
@@ -19,6 +19,19 @@ public class BubbleSortDemo {
          */
         int arr[] = {3,1,5,2,6,4};
 
+        int[] randomArr = new int[80000];
+        for (int i = 0; i < 80000; i++) {
+            randomArr[i] = new Random().nextInt(80000);
+        }
+        //System.out.println(Arrays.toString(randomArr));
+
+        long startTime = System.currentTimeMillis();
+        bubbleSort(randomArr);
+        System.out.println("bubbleSort 排序耗时 "+(System.currentTimeMillis()-startTime)+"ms");//bubbleSort 排序耗时 12361ms
+
+    }
+
+    private static void bubbleSort(int[] arr) {
         // 排序标识，为了减少无用排序次数
         boolean flag = false;
         int temp = 0;
@@ -37,12 +50,10 @@ public class BubbleSortDemo {
             }else {
                 flag = false;
             }
-            System.out.println("第"+(i+1)+"次排序");
-            System.out.println(Arrays.toString(arr));
+            //System.out.println("第"+(i+1)+"次排序");
+            //System.out.println(Arrays.toString(arr));
         }
-
     }
-
 
 
 }

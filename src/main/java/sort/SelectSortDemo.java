@@ -1,6 +1,6 @@
 package sort;
 
-import java.util.Arrays;
+import java.util.Random;
 
 /**
  * 选择排序算法
@@ -16,6 +16,22 @@ public class SelectSortDemo {
 
         int arr[] = {3,1,5,2,6,4};
 
+
+
+        int[] randomArr = new int[80000];
+        for (int i = 0; i < 80000; i++) {
+            randomArr[i] = new Random().nextInt(80000);
+        }
+        //System.out.println(Arrays.toString(randomArr));
+
+        long startTime = System.currentTimeMillis();
+        selectorSort(randomArr);
+        System.out.println("selectorSort 排序耗时 "+(System.currentTimeMillis()-startTime)+"ms"); //selectorSort 排序耗时 3355ms
+
+
+    }
+
+    private static void selectorSort(int[] arr) {
         int temp = 0;
         int minIndex = 0;
         for (int i = 0; i < arr.length-1; i++) {
@@ -30,19 +46,10 @@ public class SelectSortDemo {
                 arr[minIndex] = temp;
             }
 
-            System.out.println("第"+(i+1)+"次排序结果为");
-            System.out.println(Arrays.toString(arr));
+            //System.out.println("第"+(i+1)+"次排序结果为");
+            //System.out.println(Arrays.toString(arr));
         }
-
-
-        
-
-
-
-
-
     }
-
 
 
 }
